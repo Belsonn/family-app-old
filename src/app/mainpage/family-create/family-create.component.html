@@ -1,0 +1,41 @@
+<div class="text-box">
+  <h1 class="heading-primary text-center">Please register your family...</h1>
+  <form (submit)="onCreate(familyForm)" #familyForm="ngForm">
+    <mat-form-field>
+      <input
+        matInput
+        name="name"
+        ngModel
+        type="text"
+        placeholder="Family Name"
+        #family="ngModel"
+        required
+        minlength="3"
+      />
+      <mat-error *ngIf="family.invalid"
+        >Username must have at least 3 characters</mat-error
+      >
+    </mat-form-field>
+    <button class="btn btn-green" type="submit">Register</button>
+  </form>
+</div>
+<div *ngIf="error" class="alert alert-danger" role="alert">
+  You provided wrong token
+</div>
+<div class="text-box--secondary">
+  <h1 class="heading-primary text-center">...or join one.</h1>
+  <form (submit)="onJoin(joinForm)" #joinForm="ngForm">
+    <mat-form-field>
+      <input
+        matInput
+        name="inviteToken"
+        ngModel
+        type="text"
+        placeholder="Invite Code"
+        #code="ngModel"
+        required
+      />
+    </mat-form-field>
+    <button class="btn btn-green" type="submit">Join</button>
+  </form>
+</div>

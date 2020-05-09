@@ -1,0 +1,17 @@
+<div *ngIf="isLoading" class="spinner">
+    <mat-spinner></mat-spinner>
+</div>
+<div *ngIf="!isLoading" class="family-view">
+    <h1 class="family-name">{{family.name}}</h1>
+    <div class="users">
+        <div *ngFor="let user of users" class="user">
+            <h1>{{user.name}} {{family.name}}</h1>
+            <p class="email">{{user.email}}</p>
+            <hr>
+        </div>
+    </div>
+    <div class="invite">
+        <h1 class="token-heading">You can invite your family members using this code: </h1>
+        <p class="token">{{family.inviteToken}}</p>
+    </div>
+</div>

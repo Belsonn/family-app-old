@@ -1,0 +1,16 @@
+<mat-toolbar color="primary">
+    <span><a routerLink="/">Family app</a></span>
+    <span class="spacer"></span>
+    <ul>
+      <li>
+        <mat-menu #appMenu="matMenu" xPosition="before">
+          <button mat-menu-item>About Me</button>
+          <button mat-menu-item (click)="onLogout()">Logout</button>
+        </mat-menu>
+        <button mat-button class="btn-white"  [matMenuTriggerFor]="appMenu">
+          Menu
+        </button>
+      </li>
+    </ul>
+  </mat-toolbar>
+  
