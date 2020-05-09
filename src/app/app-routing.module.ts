@@ -1,21 +1,40 @@
+import { AuthGuard } from './authentication/auth.guard';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { MainPageComponent } from './mainpage/mainpage.component'
 import { SignupComponent } from './authentication/signup/signup.component';
 import { LoginComponent } from './authentication/login/login.component';
-
+import { FamilyViewComponent } from './mainpage/familyView/familyView.component';
+import { MainViewComponent } from './mainpage/main-view/main-view.component';
+import { HomepageComponent } from './mainpage/homepage/homepage.component';
+import { FamilyCreateComponent } from './mainpage/family-create/family-create.component';
 const routes: Routes = [
   {
-    path: '', component: MainPageComponent
+    path: '',
+    component: HomepageComponent,
   },
   {
-    path: "signup", component: SignupComponent
+    path: 'home',
+    component: MainViewComponent,
+    children: [
+      {
+        path: 'family',
+        component: FamilyViewComponent,
+        canActivate: [AuthGuard]
+      },
+      { path: 'create', component: FamilyCreateComponent },
+    ],
   },
-  {path: 'login', component: LoginComponent}
+  {
+    path: 'signup',
+    component: SignupComponent,
+  },
+  { path: 'login', component: LoginComponent },
+  { path: '**', component: HomepageComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthGuard]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
