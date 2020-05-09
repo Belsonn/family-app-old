@@ -1,5 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
+html,
+body {
+  height: 100%;
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  min-height: 100vh;
+  /* background-image: url(../img/cover-photo.jpg); */
+  background-image: linear-gradient(
+      to right,
+      rgba(101, 227, 98, 0.5),
+      rgba(52, 222, 47, 0.5)
+    ),
+    url(./app/img/cover-photo.jpg);
+  background-position: top;
+  background-size: cover;
+  position: relative;
+}
