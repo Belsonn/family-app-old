@@ -7,6 +7,9 @@
         #signupForm="ngForm"
         *ngIf="!isLoading"
       >
+      <div *ngIf="error" class="alert alert-danger" role="alert">
+        There is account with this email address. Please Login or try with another.
+      </div>
         <mat-form-field>
           <input
             matInput
@@ -16,10 +19,10 @@
             placeholder="Your name"
             #userInput="ngModel"
             required
-            minlength="6"
+            minlength="3"
           />
           <mat-error *ngIf="userInput.invalid"
-            >Username must have at least 6 characters</mat-error
+            >Username must have at least 3 characters</mat-error
           >
         </mat-form-field>
         <mat-form-field>
@@ -71,7 +74,18 @@
             >Password must have at least 6 characters.</mat-error
           >
         </mat-form-field>
-        <mat-error *ngIf="!passwordMatch" class="mb-1">Passwords are not the same!</mat-error>
+        <div class="role-picker">
+          <p>Pick your role</p>
+          <mat-radio-group [(ngModel)]="role" [ngModelOptions]="{standalone: true}" aria-label="Pick your role">
+            <mat-radio-button color = "primary" class="mr-4" value="parent">Parent</mat-radio-button>
+            <mat-radio-button color = "primary" value="children">Children</mat-radio-button>
+          </mat-radio-group>
+          <mat-error *ngIf="!passwordMatch" class="mb-1">Passwords are not the same!</mat-error>
+        </div>
+        <div *ngIf="noRole" class="alert alert-danger" role="alert">
+          Pick your role!
+        </div>
+        
         <button
           mat-raised-button
           color="accent"

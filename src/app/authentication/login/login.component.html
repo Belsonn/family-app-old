@@ -6,6 +6,9 @@
         (submit)="onLogin(loginForm)"
         #loginForm="ngForm"
       >
+      <div *ngIf="error" class="alert alert-danger" role="alert">
+        You provided wrong email or password.
+      </div>
         <mat-form-field>
           <input
             matInput
