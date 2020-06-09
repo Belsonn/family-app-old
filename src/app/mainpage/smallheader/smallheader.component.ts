@@ -22,10 +22,6 @@ export class SmallheaderComponent implements OnInit {
         this.userIsAuthenticated = isAuthenticated;
       });
   }
-  onLog() {
-    console.log(this.authService.getUserName());
-  }
-
 
   onLogout() {
     this.authService.logout();

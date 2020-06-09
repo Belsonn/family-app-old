@@ -9,6 +9,9 @@ ul {
     text-decoration: none;
     color: white;
     margin-left: 10px;
+    letter-spacing: 0.3rem;
+    font-weight: 400;
+    font-size: 2rem;
   }
   
   .spacer {
@@ -19,8 +22,14 @@ ul {
   .btn-white{
     color: #fff;
   }
-  mat-toolbar {
-      padding: 0;
+.mat-toolbar.mat-primary {
+  background: linear-gradient(
+    to right,
+    rgba(219, 31, 65, 1.0),
+    rgba(237, 0, 43, 1.0)
+  );
+    color: #fff;
+    padding: 0;
   }
   button {
     outline: none;
