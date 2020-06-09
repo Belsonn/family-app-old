@@ -1,0 +1,77 @@
+.list-header {
+  text-transform: uppercase;
+  font-size: 3rem;
+  font-weight: 200;
+  letter-spacing: 0.4rem;
+  text-align: center;
+  margin: 2rem 0;
+}
+
+
+.list-view {
+    width: 80%;
+    margin: 0 auto;
+}
+.list-item {
+    text-transform: capitalize;
+    margin-bottom: 1rem;
+    font-weight: 300;
+    letter-spacing: 0.1rem;
+    border-bottom: 1px solid #c7f2c6;
+}
+/* .list-item:hover .icon--circle-btn {
+    display: block;
+    transform: translateX(-30px);
+    transition: all 0.3s;
+} */
+
+.icon--shopping-tag{
+    margin: 0 1rem;
+    color: #555;
+}
+
+.icon--circle-btn{
+    font-size: 1rem;
+    background-color: #44d542;
+    color: #fff;
+    transition: all 0.3s;
+}
+.icon--circle-btn:hover{
+    background-color: #2dc42b;
+    
+}
+
+.icon--circle{
+  font-size: 1.5rem;
+}
+
+.list-item:last-child {
+    border-bottom: none;
+}
+
+mat-form-field {
+    width: 60%;
+    margin: 1.5rem 0;
+}
+
+.add {
+    display: block;
+    background-color: #44d542;
+    color: #fff;
+    
+    transition: all 0.3s;
+}
+.add:hover {
+    background-color: #2dc42b;
+}
+
+.input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.spacer {
+    flex: 1 1 auto;
+  }

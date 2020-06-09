@@ -1,0 +1,21 @@
+<div class='app-calendar'>
+    <full-calendar
+      #calendar
+      defaultView="dayGridMonth"
+      [header]="{
+        left: 'prev,next',
+        center: 'title',
+        right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+      }"
+      [plugins]="calendarPlugins"
+      [events]="calendarEvents"
+      [themeSystem] = "themeSystem"
+      (dateClick)="handleDateClick($event)"
+      (eventDrop)= "handleEventDrop($event)"
+      [nowIndicator] = "trueValue"
+      (eventClick) = "handleEventClick($event)"
+      ></full-calendar>
+    </div>
+    <!-- [editable]="trueValue"
+    [eventStartEditable]= "trueValue"
+    [eventResizableFromStart] = "trueValue" -->
