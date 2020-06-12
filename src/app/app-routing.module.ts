@@ -7,6 +7,8 @@ import { FamilyViewComponent } from './mainpage/familyView/familyView.component'
 import { MainViewComponent } from './mainpage/main-view/main-view.component';
 import { HomepageComponent } from './mainpage/homepage/homepage.component';
 import { FamilyCreateComponent } from './mainpage/family-create/family-create.component';
+import { CalendarComponent } from './mainpage/calendar/calendar.component';
+import { ListsComponent } from './mainpage/lists/lists.component';
 const routes: Routes = [
   {
     path: '',
@@ -22,6 +24,8 @@ const routes: Routes = [
         canActivate: [AuthGuard]
       },
       { path: 'create', component: FamilyCreateComponent },
+      { path: 'calendar', component: CalendarComponent, canActivate: [AuthGuard] },
+      { path: 'lists', component: ListsComponent, canActivate: [AuthGuard]}
     ],
   },
   {
