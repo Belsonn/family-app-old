@@ -1,17 +1,22 @@
- mat-card {
-  max-width: 120rem;
-  margin: 8rem auto;
-  background-color: #faf9f9;
-  box-shadow: 0 2rem 6rem rgba(0,0,0,.3);
-  min-height: 50rem;
+mat-card {
+  /* max-width: 120rem;
+  margin: 8rem auto; */
+  min-height: 100vh;
+  background-color: #fff;
+  box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.3);
+
   padding: 0 1.5rem;
-  max-height: 80rem;
 }
 .menu {
-  background-color: #2dc42b;
+  /* background: linear-gradient(
+    to bottom,
+    rgba(219, 31, 65, 1.0),
+    rgba(237, 0, 43, 1.0)
+  ); */
+  margin: 2rem 0;
 }
-.test {
-  height: 60rem;
+.main {
+  min-height: 100vh;
   padding: 1rem 1.5rem;
 }
 .clear-padding {
