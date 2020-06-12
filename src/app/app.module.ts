@@ -11,9 +11,13 @@ import { MatCardModule } from '@angular/material/card';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SignupComponent } from './authentication/signup/signup.component';
@@ -26,6 +30,11 @@ import { FamilyViewComponent } from './mainpage/familyView/familyView.component'
 import { MenuComponent } from './mainpage/menu/menu.component';
 import { SmallheaderComponent } from './mainpage/smallheader/smallheader.component';
 import { FamilyCreateComponent } from './mainpage/family-create/family-create.component';
+import { CalendarComponent } from './mainpage/calendar/calendar.component';
+import { ListsComponent } from './mainpage/lists/lists.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import { CalendarModalComponent } from './mainpage/calendar/calendar-modal/calendar-modal.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +47,9 @@ import { FamilyCreateComponent } from './mainpage/family-create/family-create.co
     MenuComponent,
     SmallheaderComponent,
     FamilyCreateComponent,
+    CalendarComponent,
+    ListsComponent,
+    CalendarModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,8 +68,15 @@ import { FamilyCreateComponent } from './mainpage/family-create/family-create.co
     MatDividerModule,
     MatListModule,
     MatMenuModule,
+    MatDialogModule,
     MatRadioModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    FontAwesomeModule,
+    FullCalendarModule,
+    NgxMaterialTimepickerModule,
   ],
+  entryComponents: [CalendarModalComponent],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],
