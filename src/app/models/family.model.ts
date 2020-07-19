@@ -8,6 +8,7 @@ export interface FamilyResponse {
 export interface Family {
   users: [User];
   groceries: [string];
+  toDoList: [string];
   _id: string;
   name: string;
   inviteToken: string;

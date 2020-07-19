@@ -87,21 +87,24 @@ exports.getMyFamily = asyncCatch(async (req, res, next) => {
   });
 });
 
-exports.addToList = async (req, res, next) => {
+exports.updateList = async (req, res, next) => {
   const family = await Family.findById(req.user.family);
-  const list = req.body.list;
-  if(list === 'groceries'){
-    family.groceries.push(req.body.item);
-  } else if (list === 'toDoList') {
-    family.toDoList.push(req.body.item);
+  if (!family) {
+    return next(new globalError('You dont have registered family yet.'));
+  }
+  const listName = req.body.listName
+  if(listName === 'groceries'){
+    family.groceries = req.body.listContent
+  } else if (listName === 'toDoList') {
+    family.toDoList = req.body.listContent
   } else {
     return next(new globalError('Wrong list provided.'))
   }
   family.save();
-  res.status(201).json({
+  res.status(200).json({
     status: 'success',
     data: {
       family,
     },
   });
-};
+}

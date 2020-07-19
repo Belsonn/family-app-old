@@ -8,7 +8,11 @@ router.get(
   authenticationController.protect,
   familyController.getMyFamily
 );
-router.get('/removeFamily', authenticationController.protect, familyController.removeFamily)
+router.get(
+  '/removeFamily',
+  authenticationController.protect,
+  familyController.removeFamily
+);
 router.get('/', familyController.getAllFamilies);
 router.get('/:id', familyController.getFamily);
 router.post(
@@ -16,6 +20,14 @@ router.post(
   authenticationController.protect,
   familyController.createFamily
 );
-router.post('/list', authenticationController.protect, familyController.addToList);
-router.post('/joinFamily', authenticationController.protect, familyController.joinFamily);
+router.post(
+  '/list/update',
+  authenticationController.protect,
+  familyController.updateList
+);
+router.post(
+  '/joinFamily',
+  authenticationController.protect,
+  familyController.joinFamily
+);
 module.exports = router;

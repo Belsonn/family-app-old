@@ -18,6 +18,7 @@ export class FamilyViewComponent implements OnInit {
       },
     ],
     groceries: [''],
+    toDoList: [''],
     _id: '',
     name: '',
     inviteToken: '',
@@ -27,8 +28,10 @@ export class FamilyViewComponent implements OnInit {
   constructor(private familyService: FamilyService) {}
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.familyService.getMyFamily().subscribe((res) => {
       this.users = res.data.family.users;
+      this.familyService.family = res.data.family;
       this.family = res.data.family;
       this.isLoading = false;
     });

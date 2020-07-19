@@ -2,9 +2,9 @@
   <h2 class="list-header">Groceries List</h2>
   <div class="list-view">
     <mat-list #shoes>
-      <mat-list-item class="list-item" *ngFor="let todo of todos; let i = index">
+      <mat-list-item class="list-item" *ngFor="let todo of groceries; index as i">
         <fa-icon [icon]="faTag" class="icon--shopping-tag"></fa-icon> {{ todo }} <span class="spacer"></span>
-        <button mat-mini-fab class="icon--circle-btn" ()><fa-icon [icon]="faCheck" class="icon--circle"></fa-icon></button>
+        <button mat-mini-fab class="icon--circle-btn" (click)="removeItem('groceries', i)"><fa-icon [icon]="faCheck" class="icon--circle"></fa-icon></button>
       </mat-list-item>
     </mat-list>
   </div>
@@ -18,7 +18,31 @@
         placeholder="Add new item"
       />
     </mat-form-field>
-    <button mat-icon-button class="add" (click)="handleAdd()">
+    <button mat-icon-button class="add" (click)="handleAdd('groceries')">
+      <fa-icon [icon]="faPlus"></fa-icon>
+    </button>
+  </div>
+  <hr>
+  <h2 class="list-header">To-Do List</h2>
+  <div class="list-view">
+    <mat-list #shoes>
+      <mat-list-item class="list-item" *ngFor="let todo of todos; index as i">
+        <fa-icon [icon]="faTag" class="icon--shopping-tag"></fa-icon> {{ todo }} <span class="spacer"></span>
+        <button mat-mini-fab class="icon--circle-btn" (click)="removeItem('toDoList', i)"><fa-icon [icon]="faCheck" class="icon--circle"></fa-icon></button>
+      </mat-list-item>
+    </mat-list>
+  </div>
+  <div class="input">
+    <mat-form-field>
+      <input
+        matInput
+        name="itemInput"
+        [(ngModel)]="todo1"
+        type="text"
+        placeholder="Add new To-Do"
+      />
+    </mat-form-field>
+    <button mat-icon-button class="add" (click)="handleAdd('toDoList')">
       <fa-icon [icon]="faPlus"></fa-icon>
     </button>
   </div>

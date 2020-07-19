@@ -13,7 +13,7 @@ export class AuthService {
   private userId: string;
   private userName: string;
   private hasFamily: boolean;
-  family: any;
+  familyId: string;
   private authStatus = new Subject<boolean>();
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -49,6 +49,7 @@ export class AuthService {
       this.saveAuthData(response.token, response.expiresIn);
       if (response.data.user.family) {
         this.hasFamily = true;
+        this.familyId = response.data.user.family;
         this.router.navigate(['/']);
       } else {
         this.hasFamily = false;
@@ -69,6 +70,7 @@ export class AuthService {
       this.getMe().subscribe((res) => {
         this.userName = res.data.user.name;
         this.userId = res.data.user._id;
+        this.familyId = res.data.user.family;
         if (res.data.user.family) {
           this.hasFamily = true;
         }
